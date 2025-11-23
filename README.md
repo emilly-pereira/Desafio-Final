@@ -31,24 +31,21 @@ Este projeto foi desenvolvido para estudos práticos de **DevOps**, integrando:
 
 lab_api/
 ├─ .github/workflows/
-│ └─ python-build.yml
+│   └─ python-build.yml
 ├─ static/
-│ └─ swagger.json
+│   └─ swagger.json
 ├─ tests/
-│ └─ test_app.py
+│   └─ test_app.py
 ├─ app.py
 ├─ requirements.txt
 ├─ Dockerfile
 └─ docker-compose.yml
 
-yaml
-Copiar código
-
 ---
 
 # 🚀 Como Rodar o Projeto
 
-## ▶ Rodar localmente (Python)
+## ▶ Rodar localmente
 
 ```bash
 pip install -r requirements.txt
@@ -63,19 +60,23 @@ bash
 Copiar código
 docker build -t lab_api .
 docker run -p 1313:1313 lab_api
+
 ▶ Rodar com Docker Compose
 bash
 Copiar código
 docker-compose up --build
 🧪 Testes Unitários
+
 ▶ Rodar localmente
 bash
 Copiar código
 python -m unittest discover
+
 ▶ Rodar via Docker Compose
 bash
 Copiar código
 docker-compose run api python -m unittest discover
+
 🔍 Testando a API Manualmente (URLs)
 Rota	Método	Descrição	Exemplo
 /	GET	Verifica status da API	/
@@ -90,8 +91,6 @@ O projeto faz deploy automático através do Dockerfile.
 URL do serviço:
 👉 https://desafio-final-kfbn.onrender.com
 
-Logs:
-Render → Seu Serviço → Logs
 
 📘 Swagger UI
 Documentação disponível em:

@@ -14,9 +14,9 @@ API_DOC_URL = '/static/swagger.json'
 swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_DOC_URL)
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
-@app.route('/')
-def home():
-    return jsonify(message="API is running")
+@app.route('/saudacao', methods=['GET'])
+def saudacao():
+    return {"mensagem": "Olá, bem-vindo ao Desafio Final!"}, 200
 
 @app.route('/items', methods=['GET'])
 def get_items():
