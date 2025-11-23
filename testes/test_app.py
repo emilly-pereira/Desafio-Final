@@ -3,7 +3,6 @@ from app import app
 import werkzeug
 import json
 
-# Patch temporário para adicionar o atributo '__version__' em werkzeug 
 if not hasattr(werkzeug, '__version__'):
     werkzeug.__version__ = "mock-version"
 
@@ -18,29 +17,32 @@ class APITestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json, {"message": "API is running"})
     
-    #Valida se a rota /items retorna conteúdo JSON.
-    def test_items_content_type(self):
+    #Verifica estrutura dos itens (/items)
+    def test_items_structure(self):
         resp = self.client.get('/items')
         self.assertEqual(resp.status_code, 200)
-        self.assertIn('application/json', resp.content_type)
+        data = resp.get_json()
 
-    def test_swagger_ui_available(self):
+        # valida se existe "items"
+        self.assertIn('items', data)
+        items = data['items']
+
+        for item in items:
+            self.assertIn('id', item)
+            self.assertIn('name', item)
+            self.assertIsInstance(item['id'], int)
+            self.assertIsInstance(item['name'], str)
+
+    # Verifica se a interface Swagger está funcinando 
+    def test_swagger_ui_available(self): 
         resp = self.client.get('/swagger/')
-    # Verifica se a interface Swagger está funcinando
         self.assertIn(resp.status_code, [200, 302])(resp.status_code, 401)
 
-    def test_items_response_is_dict(self):
-        # Verifica se a resposta de /items é um JSON em formato dict
-        resp = self.client.get('/items')
-        self.assertEqual(resp.status_code, 200)
-        self.assertIsInstance(resp.json, dict)
-
-        headers = {
-            'Authorization': f'Bearer {token}'
-        }
-        resp = self.client.get('/protected', headers=headers)
-        self.assertEqual(resp.status_code, 200)
-        self.assertEqual(resp.json, {"message": "Protected route"})
+    # Teste de método HTTP inválido (GET não aceita POST)
+    def test_items_invalid_method(self):
+        resp = self.client.post('/items') 
+        self.assertIn(resp.status_code, [400, 405],
+                      f"Era esperado 400 ou 405, mas veio {resp.status_code}")
 
 if __name__ == '__main__':
     unittest.main()
