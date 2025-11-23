@@ -38,4 +38,3 @@ jobs:
         with:
           name: build-python
           path: dist/
-          # retention-days: 5   # opcional

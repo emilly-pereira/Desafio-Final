@@ -1,73 +1,139 @@
-# Lab API - Pipeline DevOps (Build / Test / Deploy)
+<h1 align="center">🚀 Lab API – Pipeline DevOps Completo</h1>
 
-Projeto de exemplo para o laboratório: contém API Flask, Dockerfile, docker-compose, testes unitários e documentação via Swagger.
+<p align="center">
+  API Flask | CI/CD | GitHub Actions | Docker | Docker Compose | Render | Swagger | Testes Unitários 🧪
+</p>
 
-## Estrutura
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9-blue?logo=python"/>
+  <img src="https://img.shields.io/badge/Flask-API-blueviolet?logo=flask"/>
+  <img src="https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker"/>
+  <img src="https://img.shields.io/badge/CI/CD-GitHub%20Actions-black?logo=githubactions"/>
+  <img src="https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render"/>
+</p>
+
+---
+
+## 📌 Sobre o Projeto
+
+Este projeto foi desenvolvido para estudos práticos de **DevOps**, integrando:
+
+- API Flask
+- Docker & Docker Compose
+- Pipeline CI/CD com GitHub Actions
+- Deploy automático no Render
+- Testes Unitários
+- Documentação interativa via Swagger
+
+---
+
+## 📁 Estrutura do Projeto
+
 lab_api/
-├─ .github/
-│  └─ workflows/
-│     └─ python-build.yml
+├─ .github/workflows/
+│ └─ python-build.yml
 ├─ static/
-│  └─ swagger.json
+│ └─ swagger.json
 ├─ tests/
-│  └─ test_app.py
+│ └─ test_app.py
 ├─ app.py
 ├─ requirements.txt
 ├─ Dockerfile
 └─ docker-compose.yml
-```
 
-## Comandos Git (básicos)
-- `git status`
-- `git add .`
-- `git commit -m "mensagem"`
-- `git push origin main`
-- `git checkout -b feature/minha-feature`
-- `git pull`
-- Criar o arquivo de workflow: o caminho deve ser `.github/workflows/python-build.yml`
+yaml
+Copiar código
 
-## Comandos Docker / Docker Compose
-- Build da imagem local: `docker build -t lab_api .`
-- Rodar container: `docker run -p 1313:1313 lab_api`
-- Usando docker-compose:
-  - `docker-compose up` (ou `docker-compose up --build` para rebuild)
-  - `docker-compose down`
-  - `docker-compose build`
-- Listar containers: `docker ps`
-- Parar container: `docker stop <container_id>`
+---
 
-## Comandos Linux úteis (exemplos)
-- `ls -la`
-- `pwd`
-- `cd /caminho/para/pasta`
-- `mkdir nome_da_pasta`
-- `rm -rf pasta_ou_arquivo`
-- `cat arquivo.txt`
-- `tail -f /var/log/syslog`
-- `chmod +x script.sh`
-- `ssh usuario@host`
+# 🚀 Como Rodar o Projeto
 
-## GitHub Actions (exemplo de workflow)
-O arquivo `.github/workflows/python-build.yml` está incluído e realiza:
-- checkout do código
-- setup do python
-- instalar dependências
-- rodar testes
-- construir pacote e upload do artifact
+## ▶ Rodar localmente (Python)
 
-## Testes unitários
-- Para rodar localmente: `python -m unittest discover`
-- Se usando docker-compose:
-  - `docker-compose run api python -m unittest discover`
+```bash
+pip install -r requirements.txt
+python app.py
+Acesse:
 
-## Swagger
-- Após subir a API, abra: `http://localhost:1313/swagger`
+cpp
+Copiar código
+http://127.0.0.1:1313/
+▶ Rodar usando Docker
+bash
+Copiar código
+docker build -t lab_api .
+docker run -p 1313:1313 lab_api
+▶ Rodar com Docker Compose
+bash
+Copiar código
+docker-compose up --build
+🧪 Testes Unitários
+▶ Rodar localmente
+bash
+Copiar código
+python -m unittest discover
+▶ Rodar via Docker Compose
+bash
+Copiar código
+docker-compose run api python -m unittest discover
+🔍 Testando a API Manualmente (URLs)
+Rota	Método	Descrição	Exemplo
+/	GET	Verifica status da API	/
+/items	GET	Lista de itens	/items
+/login	POST	Gera token JWT	/login
+/protected	GET	Requer token	/protected
+/swagger/	GET	Documentação	/swagger/
 
-## Imagem fornecida (anexo)
-Arquivo anexo recebido: `/mnt/data/744927f9-a4c8-4a9b-8ba7-96b09d7b18f8.png`
+🌐 Deploy no Render
+O projeto faz deploy automático através do Dockerfile.
 
-## Observações / dicas
-- Não esqueça de trocar `JWT_SECRET_KEY` em produção.
-- Se for publicar no GitHub, adicione um workflow de CI (já incluido no repositório).
-- Caso queira performs testes com `pytest` substitua os testes por estilo pytest.
+URL do serviço:
+👉 https://desafio-final-kfbn.onrender.com
+
+Logs:
+Render → Seu Serviço → Logs
+
+📘 Swagger UI
+Documentação disponível em:
+
+bash
+Copiar código
+/swagger/
+Arquivo usado:
+
+arduino
+Copiar código
+static/swagger.json
+🤖 Pipeline CI/CD (GitHub Actions)
+O workflow realiza:
+
+✔ Checkout do código
+✔ Setup Python
+✔ Instala dependências
+✔ Executa testes unitários
+✔ Build da aplicação
+✔ Upload de artifacts
+
+Arquivo:
+
+bash
+Copiar código
+.github/workflows/python-build.yml
+🐳 Comandos Docker
+bash
+Copiar código
+docker build -t lab_api .
+docker run -p 1313:1313 lab_api
+docker-compose up --build
+docker-compose down
+docker ps
+docker stop <id>
+🧰 Comandos Git
+bash
+Copiar código
+git status
+git add .
+git commit -m "mensagem"
+git push origin main
+git pull
+git checkout -b feature/nova-feature
