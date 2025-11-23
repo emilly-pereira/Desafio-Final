@@ -34,7 +34,8 @@ jobs:
           if [ -f setup.py ]; then python setup.py sdist bdist_wheel || true; fi
 
       - name: Salvar artefatos da build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-python
           path: dist/
+          # retention-days: 5   # opcional
