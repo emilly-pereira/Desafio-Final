@@ -14,15 +14,17 @@ API_DOC_URL = '/static/swagger.json'
 swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_DOC_URL)
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
-# Rota raiz para evitar 404 quando acessar domínio sem path
 @app.route('/', methods=['GET'])
 def index():
-    # opção: redirecionar para a documentação swagger
-    return redirect(url_for('swaggerui.index'))  # redireciona para /swagger
+    return {"mensagem": "Ola, bem-vindo ao Desafio Final!"}, 200
 
-@app.route('/saudacao', methods=['GET'])
-def saudacao():
-    return {"mensagem": "Olá, bem-vindo ao Desafio Final!"}, 200
+@app.route('/', methods=['GET'])
+def root():
+    return redirect('/swagger/')
+
+    # opção: redirecionar para a documentação swagger
+   # return redirect(url_for('swaggerui.index'))  # redireciona para /swagger
+
 
 @app.route('/items', methods=['GET'])
 def get_items():
