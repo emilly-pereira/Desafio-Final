@@ -1,14 +1,14 @@
-from flask import Flask, jsonify, redirect, url_for
+from flask import Flask, jsonify, redirect
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 
 app = Flask(__name__)
 
-# Configuração do JWT
+# JWT
 app.config['JWT_SECRET_KEY'] = 'your_secret_key'
 jwt = JWTManager(app)
 
-### Swagger UI ###
+# Swagger
 SWAGGER_URL = '/swagger'
 API_DOC_URL = '/static/swagger.json'
 swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_DOC_URL)
@@ -18,13 +18,9 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 def index():
     return {"mensagem": "Ola, bem-vindo ao Desafio Final!"}, 200
 
-@app.route('/', methods=['GET'])
-def root():
+@app.route('/docs', methods=['GET'])
+def docs():
     return redirect('/swagger/')
-
-    # opção: redirecionar para a documentação swagger
-   # return redirect(url_for('swaggerui.index'))  # redireciona para /swagger
-
 
 @app.route('/items', methods=['GET'])
 def get_items():
