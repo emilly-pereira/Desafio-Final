@@ -1,107 +1,86 @@
-<h1 align="center">🚀 Desafio Final – Pipeline DevOps</h1>
+🚀 Desafio Final — API Flask com Deploy Contínuo no Render
 
-<p align="center">
-  API Flask | CI/CD | GitHub Actions | Docker | Docker Compose | Render | Swagger | Testes Unitários 🧪
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9-blue?logo=python"/>
-  <img src="https://img.shields.io/badge/Flask-API-blueviolet?logo=flask"/>
-  <img src="https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker"/>
-  <img src="https://img.shields.io/badge/CI/CD-GitHub%20Actions-black?logo=githubactions"/>
-  <img src="https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render"/>
-</p>
-
----
-
-🧩 Sobre o Projeto
-Este projeto apresenta uma API em Flask, totalmente containerizada e integrada a um pipeline CI/CD via GitHub Actions, com deploy automático na plataforma Render.
-
-Aqui você encontra desde a execução local até o fluxo completo em ambiente de produção.
-👩‍💻 Tecnologias Utilizadas:
-
-✅ API REST com Flask
-
-🐳 Docker & Docker Compose
-
-⚙️ CI/CD com GitHub Actions
-
-☁️ Deploy automático via plataforma Render
-
-📚 Documentação interativa com Swagger UI
-
-🧪 Testes unitários automatizados 
-
+Este projeto implementa uma API REST em Flask, containerizada com Docker, testada automaticamente com GitHub Actions e implantada na nuvem via Render com deploy contínuo.
+O foco principal é demonstrar um fluxo DevOps completo e funcional.
 
 🌐 Deploy em Produção — Render (Destaque Principal)
 
-O projeto está publicado e executando automaticamente na nuvem através da plataforma Render:
-
+🔗 URL pública:
 👉 https://desafio-final-kfbn.onrender.com
 
 O Render é responsável por:
 
-Fazer build automático da imagem usando seu Dockerfile
+🚀 Build automático a cada push na branch principal
 
-Realizar deploy contínuo a cada push na branch principal
+🔄 Deploy contínuo usando o Dockerfile
 
-Permitir visualização de logs, eventos de deploy e status do serviço
+📊 Dashboard com logs de build e execução
 
-Gerenciar variáveis de ambiente
+🔐 Gerenciamento de variáveis de ambiente
 
-Disponibilizar endpoint público para consumo da API
+🌍 Entrega da API online 24h
 
-📡 Como o deploy funciona
+⚙️ Como o Deploy Funciona
 
-Você faz um push no GitHub
+Você envia um commit para o GitHub
 
-O Render detecta o commit automaticamente
+O Render detecta automaticamente a alteração
 
-Ele builda a imagem usando o seu Dockerfile
+Ele executa o build da imagem usando o Dockerfile
 
-Sobe o container com sua aplicação Flask
+Sobe o container em produção
 
-Atualiza o serviço online
+Atualiza o endpoint imediatamente
 
-📄 Arquivo essencial para o Render
-
-O deploy é feito usando diretamente o:
-
+🧩 Arquivo essencial usado no Render
 Dockerfile
 
 
-O Render lê este arquivo para:
+É o coração do deploy — o Render usa exatamente esse arquivo para:
 
-criar a imagem,
+Construir a imagem
 
-instalar dependências,
+Instalá dependências
 
-expor a porta correta,
+Expor portas
 
-iniciar o serviço.
+Executar o serviço
 
-🔍 Logs e Diagnóstico (Render Dashboard)
+📡 Logs no Render
 
-No Render, você tem acesso a:
+No Render Dashboard, você pode visualizar:
 
 Logs de build
 
-Logs de execução da API
-
-Status em tempo real
-
-Erros de dependências
+Logs de execução
 
 Histórico de deploys
 
-Isso é muito útil para debug no backend.
+Erros e eventos
 
+Status da aplicação
 
-🐳 Como rodar o projeto localmente
+Tudo em tempo real — ótimo para debugging.
 
-Abaixo você encontra todos os comandos essenciais, caso precise testar ANTES de enviar ao Render.
+🧱 Estrutura do Projeto
+Desafio-Final/
+│
+├── .github/workflows/           # Pipeline CI/CD
+│   └── python-build.yml
+├── static/                      # Arquivos Swagger
+│   └── swagger.json
+├── testes/                      # Testes unitários
+│   └── test_app.py
+├── app.py                       # Código principal da API
+├── requirements.txt             # Dependências Python
+├── Dockerfile                   # Usado para build e deploy
+└── docker-compose.yml           # Uso local com Docker Compose
 
-▶️ 1. Rodar normalmente (Python puro)
+🛠️ Como Rodar Localmente
+
+Abaixo estão todos os comandos essenciais para testar antes do deploy.
+
+▶️ 1. Rodar Localmente (Python)
 Criar ambiente virtual
 python -m venv .venv
 
@@ -123,88 +102,77 @@ Rodar a API
 python app.py
 
 
-Acesse:
-👉 http://127.0.0.1:1313/
+📍 Acesse:
+http://127.0.0.1:1313/
 
-🐳 2. Rodar usando Docker
-Construir imagem
+🐳 2. Rodar com Docker
+Criar imagem
 docker build -t lab_api .
 
-Executar container
+Rodar container
 docker run -p 1313:1313 lab_api
 
-🐳 3. Rodar usando Docker Compose
+🐳 3. Rodar com Docker Compose
 docker-compose up --build
 
-📚 Documentação — Swagger
-
-Você possui documentação interativa:
+📚 Documentação da API — Swagger
 
 📍 /swagger
 
-Arquivo utilizado:
+Swagger carregado automaticamente a partir de:
 
 static/swagger.json
 
+
+Interface gráfica disponível para testar todos os endpoints.
+
 🧪 Testes Automatizados
 
-Para rodar localmente:
+Executar localmente:
 
 python -m unittest discover
 
 
-Via Docker Compose:
+Executar via Docker Compose:
 
 docker-compose run api python -m unittest discover
 
-⚙️ CI/CD — GitHub Actions
+⚙️ Pipeline CI/CD — GitHub Actions
 
 Pipeline localizado em:
 
 .github/workflows/python-build.yml
 
 
-Ele executa:
+Ele realiza:
 
-Instalação das dependências
+🧩 Instalação de dependências
 
-Testes unitários
+🧪 Execução dos testes unitários
 
-Build da aplicação
+🔍 Verificações antes do deploy
 
-Validação antes de enviar para o Render
+🏗️ Build automatizado
 
-✨ Por que este projeto é relevante?
+👩‍💻 Tecnologias Utilizadas
+Categoria	Ferramenta
+API	Flask
+Tests	unittest
+Containerização	Docker
+Orquestração local	Docker Compose
+Deploy	Render
+CI/CD	GitHub Actions
+Documentação	Swagger
+✨ Destaques do Projeto
 
-Este repositório demonstra experiência real com:
+API real rodando em produção
 
-Criação de API profissional
+Uso profissional de Docker e pipelines
 
-Containerização com Docker
+Deploy automático sem precisar acessar servidor
 
-Pipeline CI/CD
+Testes automatizados garantindo qualidade
 
-Deploy automatizado em nuvem
+Código organizado e documentado
 
-Estrutura limpa, escalável e versão controlada
-
-Documentação técnica com Swagger
-
-Boas práticas DevOps
-
-É um excelente projeto para portfólio.
-
-🤝 Contribuições
-
-Crie um fork
-
-Abra uma branch
-
-Faça alterações
-
-Abra um Pull Request
-
-📬 Contato
-
-Quer falar comigo ou ver mais projetos?
-Confira meu perfil no GitHub ou LinkedIn.
+Ideal para portfólio DevOps
