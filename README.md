@@ -15,7 +15,10 @@
 ---
 
 🧩 Sobre o Projeto
-Este projeto foi criado com o objetivo de demonstrar a aplicação prática de conceitos DevOps em um fluxo completo:
+Este projeto apresenta uma API em Flask, totalmente containerizada e integrada a um pipeline CI/CD via GitHub Actions, com deploy automático na plataforma Render.
+
+Aqui você encontra desde a execução local até o fluxo completo em ambiente de produção.
+👩‍💻 Tecnologias Utilizadas:
 
 ✅ API REST com Flask
 
@@ -30,131 +33,178 @@ Este projeto foi criado com o objetivo de demonstrar a aplicação prática de c
 🧪 Testes unitários automatizados 
 
 
-▶️ Como rodar o projeto
-✅ Instalação local (Python)
-bash
-Copiar código
-# Crie e ative o ambiente virtual
-python -m venv .venv
-source .venv/bin/activate      # macOS / Linux
-.venv\Scripts\activate         # Windows
+🌐 Deploy em Produção — Render (Destaque Principal)
 
-# Instale dependências
+O projeto está publicado e executando automaticamente na nuvem através da plataforma Render:
+
+👉 https://desafio-final-kfbn.onrender.com
+
+O Render é responsável por:
+
+Fazer build automático da imagem usando seu Dockerfile
+
+Realizar deploy contínuo a cada push na branch principal
+
+Permitir visualização de logs, eventos de deploy e status do serviço
+
+Gerenciar variáveis de ambiente
+
+Disponibilizar endpoint público para consumo da API
+
+📡 Como o deploy funciona
+
+Você faz um push no GitHub
+
+O Render detecta o commit automaticamente
+
+Ele builda a imagem usando o seu Dockerfile
+
+Sobe o container com sua aplicação Flask
+
+Atualiza o serviço online
+
+📄 Arquivo essencial para o Render
+
+O deploy é feito usando diretamente o:
+
+Dockerfile
+
+
+O Render lê este arquivo para:
+
+criar a imagem,
+
+instalar dependências,
+
+expor a porta correta,
+
+iniciar o serviço.
+
+🔍 Logs e Diagnóstico (Render Dashboard)
+
+No Render, você tem acesso a:
+
+Logs de build
+
+Logs de execução da API
+
+Status em tempo real
+
+Erros de dependências
+
+Histórico de deploys
+
+Isso é muito útil para debug no backend.
+
+
+🐳 Como rodar o projeto localmente
+
+Abaixo você encontra todos os comandos essenciais, caso precise testar ANTES de enviar ao Render.
+
+▶️ 1. Rodar normalmente (Python puro)
+Criar ambiente virtual
+python -m venv .venv
+
+Ativar ambiente
+
+Windows:
+
+.venv\Scripts\activate
+
+
+Linux/macOS:
+
+source .venv/bin/activate
+
+Instalar dependências
 pip install -r requirements.txt
 
-# Execute a API
+Rodar a API
 python app.py
-🔥 Após iniciado, acesse:
-📍 http://127.0.0.1:1313/ 
-GitHub
 
-🐳 Rodando com Docker
-bash
-Copiar código
-# Construindo a imagem Docker
+
+Acesse:
+👉 http://127.0.0.1:1313/
+
+🐳 2. Rodar usando Docker
+Construir imagem
 docker build -t lab_api .
 
-# Executando o container
+Executar container
 docker run -p 1313:1313 lab_api
-Ou, para Docker Compose:
 
-bash
-Copiar código
+🐳 3. Rodar usando Docker Compose
 docker-compose up --build
-GitHub
 
-🧪 Testes automatizados
-Executar testes localmente:
-bash
-Copiar código
-python -m unittest discover
-Executar testes via Docker Compose:
-bash
-Copiar código
-docker-compose run api python -m unittest discover
-GitHub
+📚 Documentação — Swagger
 
-🖥️ Documentação — Swagger UI
-A documentação interativa está disponível via Swagger:
+Você possui documentação interativa:
 
-👉 Rota padrão:
+📍 /swagger
 
-bash
-Copiar código
-/swagger/
-Arquivo usado:
+Arquivo utilizado:
 
-arduino
-Copiar código
 static/swagger.json
-GitHub
 
-☁️ Deploy contínuo (Streaming no Render)
-O deploy é feito automaticamente usando o arquivo Dockerfile, com versão publicada em:
+🧪 Testes Automatizados
 
-🔗 https://desafio-final-kfbn.onrender.com 
-GitHub
+Para rodar localmente:
 
-⚙️ Na plataforma Render, você também consegue acessar logs, monitorar deploys e configurar variáveis de ambiente. 
-GitHub
+python -m unittest discover
 
-✅ CI/CD com GitHub Actions
-O pipeline automatizado executa os seguintes passos:
 
-Etapa	Status Esperado
-✅ Checkout do código	Faz o pull e clone
-✅ Setup da runtime (Python)	Configura ambiente
-✅ Instalação de dependências	Instala via pip
-✅ Execução dos testes	Geração de resultados
-✅ Build / packaging	Preparar imagem/app
-✅ Deploy / artefatos	Build para deploy
-GitHub
+Via Docker Compose:
 
-Arquivo de pipeline:
+docker-compose run api python -m unittest discover
 
-bash
-Copiar código
+⚙️ CI/CD — GitHub Actions
+
+Pipeline localizado em:
+
 .github/workflows/python-build.yml
-GitHub
-
-✨ Funcionalidades da API
-Endpoint	Método	Descrição
-/	GET	Verifica status da API
-/items	GET	Retorna lista de itens
-/login	POST	Gera token JWT para autenticação
-/protected	GET	Requer token para acesso
-/swagger/	GET	Documentação interativa
-GitHub
-
-🧰 Tecnologias utilizadas
-Categoria	Ferramenta / Framework
-💻 Linguagem	Python
-☁️ API Framework	Flask
-📦 Containerização	Docker / Docker Compose
-⚙️ CICD	GitHub Actions
-📚 Documentação	Swagger UI / JSON
-🧪 Testes	unittest
-🌐 Deploy	Render
-GitHub
 
 
-Estruture endpoints adicionais conforme necessidade (CRUDs, integração com banco etc.). 
-GitHub
+Ele executa:
 
-🤝 Como contribuir
-Faça um fork deste repositório.
+Instalação das dependências
 
-Crie um novo branch com sua feature:
+Testes unitários
 
-bash
-Copiar código
-git checkout -b feature/nome-da-feature
-Faça commits claros e coerentes.
+Build da aplicação
 
-Envie um Pull Request descrevendo as modificações.
+Validação antes de enviar para o Render
 
-📫 Contato
-Caso queira falar comigo ou ver outros projetos:
+✨ Por que este projeto é relevante?
 
-🔗 LinkedIn e contato informados no perfil do GitHub. 
-GitHub
+Este repositório demonstra experiência real com:
+
+Criação de API profissional
+
+Containerização com Docker
+
+Pipeline CI/CD
+
+Deploy automatizado em nuvem
+
+Estrutura limpa, escalável e versão controlada
+
+Documentação técnica com Swagger
+
+Boas práticas DevOps
+
+É um excelente projeto para portfólio.
+
+🤝 Contribuições
+
+Crie um fork
+
+Abra uma branch
+
+Faça alterações
+
+Abra um Pull Request
+
+📬 Contato
+
+Quer falar comigo ou ver mais projetos?
+Confira meu perfil no GitHub ou LinkedIn.
