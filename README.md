@@ -1,132 +1,18 @@
-# Desafio Final — Projeto DevOps / Automação
+<h1 align="center">🚀 Desafio Final – Pipeline DevOps</h1>
 
-Este repositório reúne o projeto final do desafio, com automações, scripts, configurações e artefatos desenvolvidos para demonstrar habilidades em DevOps, infraestrutura e automação.
+<p align="center">
+  API Flask | CI/CD | GitHub Actions | Docker | Docker Compose | Render | Swagger | Testes Unitários 🧪
+</p>
 
-## 🎯 Objetivo  
-Desenvolver um projeto prático que reúna conhecimentos de infraestrutura, automação, versionamento, deploy, integração contínua ou outras práticas DevOps aprendidas ao longo do curso / desafio.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9-blue?logo=python"/>
+  <img src="https://img.shields.io/badge/Flask-API-blueviolet?logo=flask"/>
+  <img src="https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker"/>
+  <img src="https://img.shields.io/badge/CI/CD-GitHub%20Actions-black?logo=githubactions"/>
+  <img src="https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render"/>
+</p>
 
-## 📂 Estrutura do repositório  
-```text
-.
-├── README.md                # Este arquivo
-├── scripts/                 # Scripts em Python, Bash ou outra linguagem
-│   ├── script1.py
-│   ├── script2.py
-│   └── …  
-├── infra/                   # Arquivos de infraestrutura (ex: Terraform, Ansible, CloudFormation)
-│   └── …  
-├── docs/                     # Documentação do projeto
-│   └── …  
-├── tests/                    # Casos de teste automatizados
-│   └── …  
-└── .github/                  # Workflows GitHub Actions (CI / CD)
-    └── …  
-🚀 Como executar / rodar localmente
-Clone o repositório:
-
-bash
-Copiar código
-git clone https://github.com/emilly-pereira/Desafio-Final.git  
-cd Desafio-Final  
-(Opcional) Crie um ambiente virtual se usar Python / outra linguagem:
-
-bash
-Copiar código
-python -m venv .venv  
-source .venv/bin/activate    # no Linux/macOS  
-.venv\Scripts\activate       # no Windows  
-Instale dependências (se houver):
-
-bash
-Copiar código
-pip install -r requirements.txt  
-Ou, para outras linguagens, siga instruções específicas nos scripts ou na pasta infra/.
-
-Execute os scripts ou componentes:
-
-Para scripts Python: python scripts/script1.py (ajuste para os nomes reais)
-
-Para IaC / Ansible / Terraform: siga os passos dentro de infra/ (por exemplo terraform init, terraform apply, ou ansible-playbook …).
-
-✅ Funcionalidades (o que o projeto entrega)
-Liste aqui as principais funcionalidades ou automações que você implementou. Por exemplo:
-
-Automação de deploy de serviço X
-
-Provisionamento de infraestrutura com Terraform ou Ansible
-
-Scripts utilitários para backup, limpeza, monitoramento
-
-Pipeline de integração contínua usando GitHub Actions
-
-Testes automatizados
-
-(Adapte para o que seu repositório realmente contém)
-
-🧪 Testes
-Se existirem testes automatizados:
-
-bash
-Copiar código
-cd tests  
-pytest  
-Ou outra ferramenta correspondente (Jest, unittest, etc).
-
-📈 CI / CD
-Descrição breve de como está configurado o pipeline do GitHub (ou outra ferramenta):
-
-Build automático de scripts
-
-Testes executados a cada push / PR
-
-Deploy automático (se aplicável)
-
-📚 Documentação
-Se você mantiver uma pasta docs/, explique:
-
-O que está documentado ali
-
-Como navegar
-
-Diagramas, fluxos, arquitetura
-
-⚙️ Como contribuir
-Fork o repositório
-
-Crie uma branch de feature: git checkout -b feat/nova-funcionalidade
-
-Faça commits claros e descritivos
-
-Abra um Pull Request explicando a mudança
-
-📝 Licença
-Este projeto está licenciado sob a licença MIT (ou outra que você escolher). Veja o arquivo LICENSE para mais detalhes.
-
-✉️ Contato
-LinkedIn: [Seu LinkedIn]
-
-Email: seu.email@exemplo.com
-
-Se você quiser, posso verificar automaticamente os arquivos reais do repositório (você pode me dar uma listagem via código ou colar os nomes) e gerar um README exato e customizado baseado no que existe — quer que eu faça isso?
-
-
-
-
-
-
-
-Você disse:
-tenho esse repositório, acesse ele e de acordo com ele crie um novo readme
-https://github.com/emilly-pereira/Desafio-Final.git
-
-
-O ChatGPT disse:
-Perfeito — com base no conteúdo real do repositório Desafio-Final, acessei e extraí as informações necessárias para criar um README atualizado e bem estruturado. Segue o novo README pronto para uso 👇 
-GitHub
-
-🚀 Desafio Final — Lab API e Pipeline DevOps Completo
-API desenvolvida em Flask com foco em DevOps completo, integrando automação, containerização, CI/CD, deploy em Render, teste automatizado e documentação via Swagger. 
-GitHub
+---
 
 🧩 Sobre o Projeto
 Este projeto foi criado como um Desafio Final com objetivo de demonstrar a aplicação prática de conceitos DevOps em um fluxo completo:
