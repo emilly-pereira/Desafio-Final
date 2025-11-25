@@ -15,7 +15,7 @@
 ---
 
 🧩 Sobre o Projeto
-Este projeto foi criado como um Desafio Final com objetivo de demonstrar a aplicação prática de conceitos DevOps em um fluxo completo:
+Este projeto foi criado com o objetivo de demonstrar a aplicação prática de conceitos DevOps em um fluxo completo:
 
 ✅ API REST com Flask
 
@@ -28,24 +28,7 @@ Este projeto foi criado como um Desafio Final com objetivo de demonstrar a aplic
 📚 Documentação interativa com Swagger UI
 
 🧪 Testes unitários automatizados 
-GitHub
 
-📁 Estrutura do Projeto
-text
-Copiar código
-Desafio-Final/
-│
-├── .github/workflows/           # Pipelines CI/CD configurados
-│   └── python-build.yml
-├── static/                      # Arquivos estáticos (Swagger UI / docs)
-│   └── swagger.json
-├── testes/                      # Testes unitários
-│   └── test_app.py
-├── app.py                       # API principal
-├── requirements.txt             # Dependências Python
-├── Dockerfile                   # Imagem base container
-└── docker-compose.yml           # Orquestração via Docker Compose
-GitHub
 
 ▶️ Como rodar o projeto
 ✅ Instalação local (Python)
@@ -154,9 +137,6 @@ Categoria	Ferramenta / Framework
 🌐 Deploy	Render
 GitHub
 
-🔍 Dicas úteis
-Adicione variáveis de ambiente no Render Dashboard para produção. 
-GitHub
 
 Estruture endpoints adicionais conforme necessidade (CRUDs, integração com banco etc.). 
 GitHub
