@@ -1,68 +1,50 @@
-🚀 Desafio Final — API Flask com Deploy Contínuo no Render
+# 🚀 Desafio Final — API Flask com Deploy Contínuo no Render
 
-Este projeto implementa uma API REST em Flask, containerizada com Docker, testada automaticamente com GitHub Actions e implantada na nuvem via Render com deploy contínuo.
-O foco principal é demonstrar um fluxo DevOps completo e funcional.
+Este projeto implementa uma **API REST em Flask**, containerizada com Docker, testada automaticamente com GitHub Actions e implantada na nuvem via **Render** com deploy contínuo.  
+O objetivo principal é demonstrar um fluxo **DevOps completo e funcional**.
 
-🌐 Deploy em Produção — Render (Destaque Principal)
+---
 
-🔗 URL pública:
+# 🌐 Deploy em Produção — Render (Destaque Principal)
+
+🔗 **URL pública:**  
 👉 https://desafio-final-kfbn.onrender.com
 
 O Render é responsável por:
 
-🚀 Build automático a cada push na branch principal
+- 🚀 Build automático a cada push na branch principal  
+- 🔄 Deploy contínuo usando o `Dockerfile`  
+- 📊 Dashboard com logs de build e execução  
+- 🔐 Gerenciamento de variáveis de ambiente  
+- 🌍 Serviço disponível 24h  
 
-🔄 Deploy contínuo usando o Dockerfile
+## ⚙️ Como o Deploy Funciona
 
-📊 Dashboard com logs de build e execução
+1. Um commit é enviado para o GitHub  
+2. O Render detecta a mudança automaticamente  
+3. Realiza o build usando o `Dockerfile`  
+4. Inicia o container na nuvem  
+5. Atualiza o serviço instantaneamente  
 
-🔐 Gerenciamento de variáveis de ambiente
+### 🧩 Arquivo chave do Render
 
-🌍 Entrega da API online 24h
-
-⚙️ Como o Deploy Funciona
-
-Você envia um commit para o GitHub
-
-O Render detecta automaticamente a alteração
-
-Ele executa o build da imagem usando o Dockerfile
-
-Sobe o container em produção
-
-Atualiza o endpoint imediatamente
-
-🧩 Arquivo essencial usado no Render
 Dockerfile
 
+yaml
+Copiar código
 
-É o coração do deploy — o Render usa exatamente esse arquivo para:
+Ele define:
 
-Construir a imagem
+- Instalação das dependências  
+- Exposição da porta  
+- Execução da aplicação  
+- Build completo do container  
 
-Instalá dependências
+---
 
-Expor portas
+# 🧱 Estrutura do Projeto
 
-Executar o serviço
-
-📡 Logs no Render
-
-No Render Dashboard, você pode visualizar:
-
-Logs de build
-
-Logs de execução
-
-Histórico de deploys
-
-Erros e eventos
-
-Status da aplicação
-
-Tudo em tempo real — ótimo para debugging.
-
-🧱 Estrutura do Projeto
+```text
 Desafio-Final/
 │
 ├── .github/workflows/           # Pipeline CI/CD
@@ -71,108 +53,100 @@ Desafio-Final/
 │   └── swagger.json
 ├── testes/                      # Testes unitários
 │   └── test_app.py
-├── app.py                       # Código principal da API
+├── app.py                       # API principal em Flask
 ├── requirements.txt             # Dependências Python
-├── Dockerfile                   # Usado para build e deploy
-└── docker-compose.yml           # Uso local com Docker Compose
-
+├── Dockerfile                   # Configuração de build para Docker/Render
+└── docker-compose.yml           # Orquestração local
 🛠️ Como Rodar Localmente
+Abaixo estão todos os comandos que você precisa para testar o projeto antes de enviar ao Render.
 
-Abaixo estão todos os comandos essenciais para testar antes do deploy.
-
-▶️ 1. Rodar Localmente (Python)
+▶️ 1. Execução Local (Python)
 Criar ambiente virtual
+bash
+Copiar código
 python -m venv .venv
-
 Ativar ambiente
-
 Windows:
 
+bash
+Copiar código
 .venv\Scripts\activate
-
-
 Linux/macOS:
 
+bash
+Copiar código
 source .venv/bin/activate
-
 Instalar dependências
+bash
+Copiar código
 pip install -r requirements.txt
-
-Rodar a API
+Iniciar a API
+bash
+Copiar código
 python app.py
-
-
-📍 Acesse:
+📍 Acesse no navegador:
 http://127.0.0.1:1313/
 
-🐳 2. Rodar com Docker
-Criar imagem
+🐳 2. Execução via Docker
+Construir imagem
+bash
+Copiar código
 docker build -t lab_api .
-
 Rodar container
+bash
+Copiar código
 docker run -p 1313:1313 lab_api
-
-🐳 3. Rodar com Docker Compose
+🐳 3. Execução via Docker Compose
+bash
+Copiar código
 docker-compose up --build
-
 📚 Documentação da API — Swagger
+Disponível em:
 
 📍 /swagger
 
-Swagger carregado automaticamente a partir de:
+Usa o arquivo:
 
+arduino
+Copiar código
 static/swagger.json
-
-
-Interface gráfica disponível para testar todos os endpoints.
+Permite testar endpoints com interface visual.
 
 🧪 Testes Automatizados
-
 Executar localmente:
 
+bash
+Copiar código
 python -m unittest discover
+Via Docker Compose:
 
-
-Executar via Docker Compose:
-
+bash
+Copiar código
 docker-compose run api python -m unittest discover
-
-⚙️ Pipeline CI/CD — GitHub Actions
-
+⚙️ CI/CD — GitHub Actions
 Pipeline localizado em:
 
+bash
+Copiar código
 .github/workflows/python-build.yml
+Ele faz:
 
+🧩 Instalação das dependências
 
-Ele realiza:
+🧪 Execução dos testes
 
-🧩 Instalação de dependências
+🏗️ Validação do código
 
-🧪 Execução dos testes unitários
-
-🔍 Verificações antes do deploy
-
-🏗️ Build automatizado
+🔧 Preparação para deploy
 
 👩‍💻 Tecnologias Utilizadas
 Categoria	Ferramenta
 API	Flask
-Tests	unittest
+Backend	Python
+Documentação	Swagger
+Testes	unittest
 Containerização	Docker
 Orquestração local	Docker Compose
 Deploy	Render
 CI/CD	GitHub Actions
-Documentação	Swagger
-✨ Destaques do Projeto
 
-API real rodando em produção
-
-Uso profissional de Docker e pipelines
-
-Deploy automático sem precisar acessar servidor
-
-Testes automatizados garantindo qualidade
-
-Código organizado e documentado
-
-Ideal para portfólio DevOps
